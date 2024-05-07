@@ -1,0 +1,48 @@
+body {
+  margin: 0;
+  background: url('../src/assets/scroolsheetHorizontal.jpeg') no-repeat fixed;
+  background-size: cover;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+button{
+  cursor: pointer;
+}
+
+#search{
+  font-size: 1.5rem;
+  width: 60%;
+  position: relative;
+}
+
+#saleHolder{
+  position: absolute;
+  bottom: 2rem;
+  right: 2rem;
+  background: goldenrod;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: .5rem;
+  padding-bottom: .5rem;
+  border-radius: 1rem;
+  transition: .5s;
+  &:hover{
+      transform: scale(1.3);
+  }
+}
+
+#saleHolder a{
+  text-decoration: none;
+  color: black;
+  font-weight: 800;
+  font-size: 2rem;
+}

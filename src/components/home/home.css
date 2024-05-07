@@ -1,0 +1,57 @@
+.home .actionContainer div #link{
+    text-decoration: none;
+    font-size: 2rem;
+    color: black;
+    font-weight: 800;
+}
+
+.home{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.home .actionContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+
+.home .actionContainer>div{
+    transition: .5s;
+    &:hover{
+        transform: scale(1.2);
+    }
+}
+
+#lend{
+    background: url('../../assets/lendBack.png') no-repeat center;
+    background-size: contain;
+    width: 26rem;
+    height: 6rem;
+}
+
+#borrow{
+    background: url('../../assets/borrowBack.png') no-repeat center;
+    background-size: contain;
+    width: 26rem;
+    height: 6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: scale(1.2);
+    &:hover{
+        transform: scale(1.4);
+    }
+}
+
+#return{
+    background: url('../../assets/returnBack1.png') no-repeat center;
+    background-size: contain;
+    width: 26rem;
+    height: 6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

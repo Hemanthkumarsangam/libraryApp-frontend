@@ -1,0 +1,31 @@
+#popup h3{
+    background: url('../../assets/popupBack.png') no-repeat;
+    background-size: contain;
+    position: absolute;
+    text-align: center;
+    align-items: center;
+    padding: 2rem;
+    right: 2rem;
+    top: 2rem;
+    height: 20rem;
+    width: 22rem;
+    transition: .5s;
+    transform-origin: right;
+    z-index: 9999;
+}
+
+#confirm h3{
+    background: url('../../assets/popupBack.png') no-repeat;
+    background-size: contain;
+    position: absolute;
+    text-align: center;
+    align-items: center;
+    padding: 2rem;
+    right: 2rem;
+    top: 2rem;
+    height: 20rem;
+    width: 24rem;
+    transition: .5s;
+    transform-origin: right;
+    z-index: 9999;
+}

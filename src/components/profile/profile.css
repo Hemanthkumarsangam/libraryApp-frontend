@@ -1,0 +1,100 @@
+.profile{
+    width: fit-content;
+    display: flex;
+    padding: 1rem;
+    flex-direction: row;
+    border-radius: 1rem;
+}
+
+.profile .details{
+    display: flex;
+    margin-right: 5.9rem;
+    margin-left: 5rem;
+}
+
+.profile .details h3{
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+.profile #lended{
+    background: url('../../assets/scroolSheet.png') no-repeat;
+    background-size: cover;
+    width: 20rem;
+    display: flex;
+    flex-direction: column;
+    height: 30rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin-right: 4rem;
+    border-radius: 1rem;
+}
+
+.profile #lended>div::-webkit-scrollbar{
+    display: none;
+}
+
+.profile #lended .head{
+    position: sticky;
+    right: 0;
+    top: 0;
+    text-align: center;
+    width: 100%;
+    z-index: 99;
+    font-size: 2.5rem;
+    margin: 0;
+    margin-bottom: 1rem;
+}
+
+.profile #lended table{
+    box-shadow: 0 0 10px black;
+    margin: 1rem;
+    padding: .5rem;
+    border-radius: 1rem;
+    background: transparent;
+    backdrop-filter: blur(15px);
+}
+
+.profile #lended > div{
+    position: relative;
+    top: 1rem;
+    max-height: 24rem;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.profile #lended table tr td{
+    padding: 0;
+}
+
+.profile #lended table tr td #bookName{
+    font-size: 1.25rem;
+}
+
+.profile #lended table tr td #bookCount{
+    margin-left: .5rem;
+    font-weight: 800;
+}
+
+p{
+    margin: 0;
+}
+
+#updbtn{
+    width: fit-content;
+    font-size: 1rem;
+    padding: .5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    border-radius: 1rem;
+    font-weight: 800;
+    border: none;
+    margin: 1rem;
+    background: transparent;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 10px black, 0 0 15px black;
+    transition: .5s;
+    &:hover{
+        transform: scale(1.2);
+    }
+}

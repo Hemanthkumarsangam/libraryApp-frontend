@@ -1,0 +1,70 @@
+#form{
+    padding: 2rem;
+    background: transparent;
+    width: 34rem;
+    height: 29rem;
+    z-index: -1;
+    background: url('../../assets/formBackTemp.png') no-repeat;
+    background-size: contain;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#form p, form Link{
+    font-weight: 900;
+    font-size: 1.55rem;
+}
+
+#input{
+    background: transparent;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    margin: 1rem;
+    padding: 1rem;
+    font-weight: 900;
+    font-size: 1rem;
+}
+
+#input::placeholder{
+    color: rgba(0, 0, 0, 0.829);
+}
+
+#button{
+    background: transparent;
+    backdrop-filter: blur(20px);
+    margin-top: 2rem;
+    border-radius: .5rem;
+    transform: scale(1.5);
+    padding: .5rem;
+    border: none;
+    box-shadow: 0 0 10px black, 0 0 20px black;
+    transition: .5s;
+}
+
+#button:hover{
+    transform: scale(1.8);
+}
+
+.inputBox{
+    display: flex;
+    margin-left: 5rem;
+}
+
+i{
+    display: flex;
+    align-items: center;
+}
+
+#form h3{
+    backdrop-filter: blur(4px);
+    padding: .5rem;
+    border-radius: 10rem;
+    box-shadow: 0 0 10px solid;
+}
+
+#form h3 a{
+    font-size: 1.5rem;
+}

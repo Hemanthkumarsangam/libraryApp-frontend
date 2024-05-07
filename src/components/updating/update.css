@@ -1,0 +1,55 @@
+.update form input{
+    background: none;
+    border: none;
+    border-bottom: 2px solid #000;
+    font-size: 1.5rem;
+    margin-left: 1rem;
+    &::placeholder{
+        color: rgb(44, 44, 44);
+    }
+    &:active{
+        border: none;
+    }
+    text-align: center;
+    backdrop-filter: blur(10px);
+}
+
+.update form input{
+    margin-top: 1rem;
+}
+
+.update form button{
+    width: fit-content;
+}
+
+.update form{
+    background: url('../../assets/lendDetailsBack.png') no-repeat center;
+    width: 50rem;
+    height: 30rem;
+    background-size: contain;
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+
+.update form button{
+    width: fit-content;
+    font-size: 1rem;
+    padding: .5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    border-radius: 1rem;
+    font-weight: 800;
+    border: none;
+    margin: 1rem;
+    background: transparent;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 10px black, 0 0 15px black;
+    transition: .5s;
+    &:hover{
+        transform: scale(1.2);
+    }
+}
