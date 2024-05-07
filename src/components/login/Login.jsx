@@ -47,7 +47,7 @@ const Login = () => {
             if(res.data.message === 'exist'){ 
               isLoggedIn = true
               user = res.data.user
-              navigate('/home')
+              navigate('/')
             }
             else{
               popup(res.data.message)
