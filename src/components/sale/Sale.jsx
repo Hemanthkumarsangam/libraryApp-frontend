@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import '../borrow/borrow.css'
 import Navmenu from '../navmenu/Navmenu'
 import BackBtn from '../backbtn/BackBtn'
@@ -30,6 +30,10 @@ function Sale() {
     setShowPopup(true);
   }
 
+  const handleError = useCallback((error) => {
+    console.log(error);
+    popup('Unexpected server error\nTry again later');
+  }, []);
 
   useEffect(() => {
     async function fetchData(){
@@ -43,12 +47,7 @@ function Sale() {
       }
     }
     fetchData()
-  }, [name, books])
-
-  function handleError(err){
-    console.log(err)
-    popup('Unexpected server error\nTry again later')
-  }
+  }, [name, books, handleError])
 
   async function handleBuy(book){
     setLoading(true)
