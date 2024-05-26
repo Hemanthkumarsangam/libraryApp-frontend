@@ -36,23 +36,12 @@ function Lend() {
     setLoading(true)
     try {
       if(isLoggedIn){
-      await axios.put('https://libraryapp-backend.onrender.com/user/lend', {
+      await axios.put(`${process.env.REACT_APP_BASE_URL}/user/lend`, {
         name, author, bookCount, email
       })      
       .then(async (res1) => {
-        try {
-          await axios.post('https://libraryapp-backend.onrender.com/book/lend', {
-            name, author, bookCount
-          })
-          .then((res2) => {
-            setLoading(false)
-            popup(res1.data.message+`\nYou are rewarded with ${4*bookCount} points`)
-          })
-        } catch (error) {
-          setLoading(false)
-          popup('Unexpected server error\nTry again later')
-          console.log(error)
-        }
+        setLoading(false)
+        popup(res1.data.message)
       })}else{
         if(window.confirm('Login to perform this action')){navigate('/login'); return}
         else {setLoading(false); return}

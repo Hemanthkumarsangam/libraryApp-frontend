@@ -1,0 +1,44 @@
+.otp form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 60px;
+}
+
+.otp .inpHolder{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.otp input{
+    width: 20px;
+    padding: 5px;
+    text-align: center;
+    background: rgb(44, 42, 42);
+    color: white;
+    font-size: larger;
+    font-weight: 800;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 0 5px green, 0 0 10px green, 0 0 15px green;
+    &:focus{
+        box-shadow: 0 0 5px blue, 0 0 10px blue, 0 0 15px blue;
+        border: none;
+    }
+}
+
+.otp button{
+    font-size: larger;
+    font-weight: 700;
+    padding: 15px;
+    border: none;
+    border-radius: 15px;
+    background-color: green;
+    color: white;
+    transition: .5s;
+    &:hover{
+        font-size: x-large;
+    }
+}

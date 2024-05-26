@@ -38,7 +38,7 @@ function Sale() {
   useEffect(() => {
     async function fetchData(){
       try {
-          const response = await axios.put(`https://libraryapp-backend.onrender.com/sales/getFromSale`, { name})
+          const response = await axios.put(`${process.env.REACT_APP_BASE_URL}/sales/getFromSale`, { name})
           setBooks(response.data)
       } catch (error) {
           handleError(error)
@@ -60,7 +60,7 @@ function Sale() {
             return
         }
         const email = user.email
-        const userResponse = await axios.get(`https://libraryapp-backend.onrender.com/user/profile/${user.email}`)
+        const userResponse = await axios.get(`${process.env.REACT_APP_BASE_URL}/user/profile/${user.email}`)
         if(userResponse.data.points < book.price){
             popup('You doesn\'t have enough points to purchase this book')
             setTimeout(() => {
@@ -68,8 +68,8 @@ function Sale() {
             }, 5050)
             return
         }
-        await axios.put('https://libraryapp-backend.onrender.com/user/buy', { email, book })
-        const saleBuy = await axios.put('https://libraryapp-backend.onrender.com/sales/buy', { book })
+        await axios.put(`${process.env.REACT_APP_BASE_URL}/user/buy`, { email, book })
+        const saleBuy = await axios.put(`${process.env.REACT_APP_BASE_URL}/sales/buy`, { book })
         popup('Book Booked Successfully\n'+saleBuy.data.message)
     } catch (error) {
         handleError(error)

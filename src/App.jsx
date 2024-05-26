@@ -9,7 +9,8 @@ import UpdateName from './components/updating/UpdateName';
 import Sale from './components/sale/Sale';
 import { Login } from './components/login/Login';
 import SignUp from './components/login/SignUp'  
-import Confirm from './components/popup/Confirm';
+import Otp from './components/otp/Otp';
+import Admin from './components/admin/Admin';
 
 function App() {
   return (
@@ -24,7 +25,8 @@ function App() {
         <Route path='/return' element={<Return />} />
         <Route path='/changeName' element={<UpdateName />} />
         <Route path='/sale' element={<Sale />} />
-        <Route path='/popup' element={<Confirm />} />
+        <Route path='/otp' element={<Otp />} />
+        <Route path='/admin' element={<Admin />} />
       </Routes>
     </Router>
   );

@@ -40,7 +40,8 @@ const Login = () => {
     setLoading(true)
     e.preventDefault();
     try {
-        await axios.post('https://libraryapp-backend.onrender.com/user/login', {
+      console.log(process.env.REACT_APP_BASE_URL)
+        await axios.post(`${process.env.REACT_APP_BASE_URL}/user/login`, {
             email, password
         })
         .then(res =>{

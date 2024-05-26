@@ -38,32 +38,18 @@ function Borrow() {
         const author = book.author
         const email = user.email
         try {
-          await axios.put('https://libraryapp-backend.onrender.com/user/borrow', {
+          await axios.put(`${process.env.REACT_APP_BASE_URL}/user/borrow`, {
             name, author, email
           })
           .then(async(res1) => {
             if(res1.data.message === 'book already borrowed'){
               popup('Book already borrowed')
               return
-            }else if(res1.data.message === 'book borrowed successfully'){
-              try {
-                await axios.post('https://libraryapp-backend.onrender.com/book/borrow', {
-                  name, author
-                })
-                .then((res2) => {
-                  if(res2.data.message === 'Book not found'){
-                    popup('Book not found');
-                  }else{
-                    popup('Book borrowed successfully\nBooking id: '+res2.data)
-                    setTimeout(() => {
-                      navigate(-1)
-                    }, 6000)
-                  }
-                })
-              } catch (error) {
-                console.log(error)
-                popup('Unexpected server error\nTry again later')
-              }
+            }else{
+              popup(res1.data.message)
+              setTimeout(() => {
+                navigate(-1)
+              }, 6000)
             }
           })
         } catch (error) {
@@ -73,14 +59,14 @@ function Borrow() {
       }
     }else{
       if(window.confirm('Login to perform this action')){navigate('/login')}
-      else {return}
     }
+    setLoading(false)
   }
 
   useEffect( () => {
     try {
       async function getNameSearch(){
-        await axios.put('https://libraryapp-backend.onrender.com/book/nameSearch', {
+        await axios.put(`${process.env.REACT_APP_BASE_URL}/book/nameSearch`, {
             name
         })
         .then((res) => {

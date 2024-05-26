@@ -27,7 +27,7 @@ function Return() {
   useEffect(() => {
     async function fetchData(){
       if(isLoggedIn){
-        await axios.get(`https://libraryapp-backend.onrender.com/user/profile/${email}`)
+        await axios.get(`${process.env.REACT_APP_BASE_URL}/user/profile/${email}`)
         .then((res) => {
           setLoading(false)
           setBorrowed(res.data.borrowed.filter((book) => book.returned === false))
@@ -43,31 +43,19 @@ function Return() {
 
   async function handleReturn(book){
     if(window.confirm(`Are you sure you want to return ${book.name}`)){
-        const name = book.name
-        const author = book.author
-        const date = book.date
-        const email = user.email
-        try {
-        await axios.put('https://libraryapp-backend.onrender.com/book/return', {
-            name, author
-        })
-        .then(async () => {
-            await axios.put('https://libraryapp-backend.onrender.com/user/return', {
-                date, email
-            })
-            .then((res2) => {
-            if(parseInt(res2.data.message) < 0){
-                popup(`You are fined whith ${res2.data.message} points due to late return of the book`)
-            }else{
-                popup(`You are rewarded whith ${res2.data.message} points`)
-            }
-            setTimeout(() => {
-              navigate(-1)
-            }, 6000)
-            })
-        })  
-        } catch (error) {
-        console.log(error)
+      const name = book.name
+      const author = book.author
+      const date = book.date
+      const email = user.email
+      try {
+          const res = await axios.put(`${process.env.REACT_APP_BASE_URL}/user/return`, {name, author, date, email })
+          popup(res.data.message)
+          setTimeout(() => {
+            navigate(-1)
+          }, 6000)
+    } catch (error) {
+      popup('Unexpected server error\nTry again later');
+      console.log(error)
     }}else{
         return
     }

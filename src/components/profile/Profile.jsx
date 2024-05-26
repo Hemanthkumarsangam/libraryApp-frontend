@@ -14,7 +14,7 @@ function Profile() {
   const [loading, setLoading] = useState(true)
   useEffect(() => {
     async function fetchData(){
-      await axios.get(`https://libraryapp-backend.onrender.com/user/profile/${email}`)
+      await axios.get(`${process.env.REACT_APP_BASE_URL}/user/profile/${email}`)
       .then((res) => {
         setDetails(res.data)
         setLoading(false)

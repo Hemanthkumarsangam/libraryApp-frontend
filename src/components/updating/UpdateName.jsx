@@ -18,12 +18,12 @@ function UpdateName() {
     setLoading(true)
     e.preventDefault();
     try {
-      await axios.post('https://libraryapp-backend.onrender.com/user/login', {
+      await axios.post(`${process.env.REACT_APP_BASE_URL}/user/login`, {
         email, password
       })
       .then(async (res) =>{
         if(res.data.message === 'exist'){ 
-          await axios.put('https://libraryapp-backend.onrender.com/user/updateName', {
+          await axios.put(`${process.env.REACT_APP_BASE_URL}/user/updateName`, {
             email, password, newName
         })
         .then((res) => {

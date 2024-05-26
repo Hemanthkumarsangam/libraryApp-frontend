@@ -39,17 +39,14 @@ function SignUp() {
     setLoading(true)
     e.preventDefault();
     try {
-      await axios.post('https://libraryapp-backend.onrender.com/user/register', {
+      await axios.post(`${process.env.REACT_APP_BASE_URL}/user/register`, {
         name, email, password
       })
       .then(res => {
         popup(res.data.message)
-        setLoading(false)
-        if(res.data.message === 'Account created successfully'){
-          setTimeout(() => {
-            navigate("/login")
-          }, 5050)
-        }
+        setTimeout(() => {
+          navigate('/otp', {state : {email, name, password}})
+        }, 5050)
       })
       .catch(e => {
         setLoading(false)
