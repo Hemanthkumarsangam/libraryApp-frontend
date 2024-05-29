@@ -25,43 +25,43 @@ function Admin() {
     console.log(process.env.REACT_APP_PASSWORD)
   }
 
-  async function fetchData() {
-    setLoading(true)
-    try {
-      const res = await axios.get(`${process.env.REACT_APP_BASE_URL}/user/getRequests`);
-      const reqs = res.data.content;
-
-      const lendRequests = [];
-      const borrowRequests = [];
-      const returnRequests = [];
-
-      reqs.forEach((req) => {
-        if (req.reqType === 'Lend') lendRequests.push(req);
-        if (req.reqType === 'Borrow') borrowRequests.push(req);
-        if (req.reqType === 'Return') returnRequests.push(req);
-      });
-
-      setLend(lendRequests);
-      setBorrow(borrowRequests);
-      setRet(returnRequests);
-      setLoading(false)
-    } catch (err) {
-      setLoading(false)
-      popup('Unexpected server error\nTry again later')
-      console.log(err)
-    }
-  }
-
   function popup(data){
     setMsg(data)
     setShowPopup(true);
     setTimeout(() => {
       setShowPopup(false)
-      fetchData()
+      window.location.reload()
     }, 6000)
   }
 
   useEffect(() => {
+    async function fetchData() {
+      setLoading(true)
+      try {
+        const res = await axios.get(`${process.env.REACT_APP_BASE_URL}/user/getRequests`);
+        const reqs = res.data.content;
+
+        const lendRequests = [];
+        const borrowRequests = [];
+        const returnRequests = [];
+
+        reqs.forEach((req) => {
+          if (req.reqType === 'Lend') lendRequests.push(req);
+          if (req.reqType === 'Borrow') borrowRequests.push(req);
+          if (req.reqType === 'Return') returnRequests.push(req);
+        });
+
+        setLend(lendRequests);
+        setBorrow(borrowRequests);
+        setRet(returnRequests);
+        setLoading(false)
+      } catch (err) {
+        setLoading(false)
+        popup('Unexpected server error\nTry again later')
+        console.log(err)
+      }
+    }
+
     fetchData();
   }, []);
 
